@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                           */
-/*  avr-snippets - Some useful code snippets for the Atmega Microcontroller  */
+/*  avrsnippets - Some useful code snippets for the Atmega Microcontroller   */
 /*  Copyright (C) 2012  Julian Iseringhausen                                 */
 /*                                                                           */
 /*  This program is free software: you can redistribute it and/or modify     */
@@ -22,17 +22,16 @@
  * @file   seed_eeprom.h
  * @author Julian Iseringhausen
  * @date   Tue Aug 21 00:35:12 2012
- * 
+ *
  * @brief  Sets a different seed each time called using solely the builtin EEPROM.
  *
  *         Maximizes the EEPROM cells lifetime.
  *         No external hardware or free analog ports required.
  *         Minimum of 8 Bytes of free EEPROM required.
  *         Not intended for cryptographic applications.
- * 
+ *
  */
 
 #include <stdint.h>
 
-extern void seed_eeprom(const uint16_t eeprom_begin, const uint16_t eeprom_end);
-
+extern uint32_t get_seed(uint32_t* eeprom_begin, uint32_t* eeprom_end);
