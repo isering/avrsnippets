@@ -27,6 +27,12 @@
  * 
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifdef AVRSNIPPETS_USE_RANDOM
+
 #include <avr/io.h>
 
 #include "avrsnippets/seed_eeprom/seed_eeprom.h"
@@ -36,7 +42,7 @@ uint32_t random_val;
 
 void random_init()
 {
-  random_val = get_seed(0, (uint32_t*)E2END);
+  random_val = get_seed(RANDOM_EEPROM_BEGIN, (uint32_t*)RANDOM_EEPROM_END);
   for (uint8_t i=0; i<10; ++i)
     random_xorshift32();
 }
@@ -48,3 +54,15 @@ uint32_t random_xorshift32()
   random_val ^= random_val << 5;
   return random_val;
 }
+
+uint8_t random_variate(uint8_t base, uint8_t bottom, uint8_t top, uint8_t var_bits)
+{
+  int16_t random = (int16_t)base + (int8_t)(random_shift_8(var_bits) & (_BV(var_bits)-1)) - (int8_t)(_BV(var_bits-1) - 1);
+  
+  if (random < (int16_t)bottom) random = bottom;
+  else if (random > top) random = top;
+  
+  return (uint8_t)random;
+}
+
+#endif /* AVRSNIPPETS_USE_RANDOM */

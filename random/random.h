@@ -37,6 +37,8 @@ extern uint32_t random_val;
 extern void random_init();
 extern uint32_t random_xorshift32();
 
+extern uint8_t random_variate(uint8_t base, uint8_t bottom, uint8_t top, uint8_t var);
+
 static inline uint8_t random_shift_8(uint8_t num_bits) __attribute__((always_inline));
 static inline uint8_t random_shift_8(uint8_t num_bits)
 {

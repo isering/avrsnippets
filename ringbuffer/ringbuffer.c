@@ -31,6 +31,8 @@
 #include "config.h"
 #endif
 
+#ifdef AVRSNIPPETS_USE_RINGBUFFER
+
 #include "ringbuffer.h"
 
 void ringbuffer_init(ringbuffer_t* r, volatile uint8_t* buffer, uint8_t size)
@@ -40,3 +42,5 @@ void ringbuffer_init(ringbuffer_t* r, volatile uint8_t* buffer, uint8_t size)
   r->begin = buffer;
   r->size = size;
 }
+
+#endif /* AVRSNIPPETS_USE_RINGBUFFER */

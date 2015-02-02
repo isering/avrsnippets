@@ -32,6 +32,12 @@
  *
  */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#ifdef AVRSNIPPETS_USE_SEED_EEPROM
+
 #include <avr/eeprom.h>
 #include <avr/io.h>
 
@@ -53,3 +59,5 @@ uint32_t get_seed(uint32_t* eeprom_begin, uint32_t* eeprom_end)
 
   return seed;
 }
+
+#endif /* AVRSNIPPETS_USE_SEED_EEPROM */
