@@ -1,8 +1,29 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+/*                                                                           */
+/*  avrsnippets - Some useful code snippets for the Atmega Microcontroller   */
+/*  Copyright (C) 2014  Julian Iseringhausen                                 */
+/*                                                                           */
+/*  This program is free software: you can redistribute it and/or modify     */
+/*  it under the terms of the GNU General Public License as published by     */
+/*  the Free Software Foundation, either version 3 of the License, or        */
+/*  (at your option) any later version.                                      */
+/*                                                                           */
+/*  This program is distributed in the hope that it will be useful,          */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of           */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the            */
+/*  GNU General Public License for more details.                             */
+/*                                                                           */
+/*  You should have received a copy of the GNU General Public License        */
+/*  along with this program.  If not, see <http://www.gnu.org/licenses/>.    */
+/*                                                                           */
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
 /*
  * serial.h
  *
  * Created: 21.10.2012 12:08:00
- *  Author: Julian
+ *  Author: Julian Iseringhausen <julian.iseringhausen@gmail.com>
  */ 
 
 
@@ -93,10 +114,10 @@ extern message_t serial_message_in;
 #endif
 
 #ifndef SERIAL_BUFSIZE_IN
-#define SERIAL_BUFSIZE_IN 270
+#define SERIAL_BUFSIZE_IN 255
 #endif
 
-extern message_t* serial_message_in_ptr;
+extern message_t* volatile serial_message_in_ptr;
 
 extern message_t serial_message_in1;
 extern message_t serial_message_in2;
@@ -255,16 +276,18 @@ extern message_t serial_message_out;
 #endif
 
 extern void serial_init();
+extern void serial_change_baud(uint16_t baud);
 extern void serial_send(uint8_t data);
 extern void serial_send_str(PGM_P str);
+extern void serial_send_array(uint8_t* data, uint8_t size);
 
 static inline void serial_send_str_direct(PGM_P str) __attribute__((always_inline));
 static inline void serial_send_str_direct(PGM_P str)
 {
-	uint8_t data;
 	uint8_t i=0;
+	uint8_t data;
 	do {
-		data = pgm_read_byte(&str + i++);
+		data = pgm_read_byte(&str[i++]);
 		while (!get(SERIAL_DRE_CONTROL, SERIAL_DRE));
 		SERIAL_DATA_REGISTER = data;
 	} while (data != 0);
