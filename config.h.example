@@ -1,0 +1,59 @@
+/*
+ * config.h
+ *
+ * Created: 18.02.2015 19:44:55
+ *  Author: Julian Iseringhausen
+ */ 
+
+
+#ifndef CONFIG_H_
+#define CONFIG_H_
+
+#define F_CPU 20000000UL
+
+#define AVRSNIPPETS_USE_MESSAGE
+#define AVRSNIPPETS_USE_RANDOM
+#define AVRSNIPPETS_USE_RINGBUFFER
+#define AVRSNIPPETS_USE_SEED_EEPROM
+#define AVRSNIPPETS_USE_SERIAL
+
+#define SERIAL_ENABLE_RX
+#define SERIAL_ENABLE_TX
+#define SERIAL_ENABLE_RX_INT
+#define SERIAL_ENABLE_TX_INT
+#define SERIAL_ENABLE_RX_INT_MESSAGE_BUFFERED
+#define SERIAL_ENABLE_TX_INT_RINGBUFFER
+
+#define SERIAL_BUFSIZE_IN 255
+#define SERIAL_BUFSIZE_OUT 255
+#define SERIAL_BAUDRATE 115200UL
+#define SERIAL_CHARSIZE 8
+
+#define FPS_OCR OCR1A
+#define FPS_TIMSK TIMSK1
+#define FPS_TCCRB TCCR1B
+#define FPS_CS0 CS10
+#define FPS_CS1 CS11
+#define FPS_CS2 CS12
+
+#define FPS 40
+
+#define BOOTLOADER_START_ADDRESS 0x3C00
+
+/* GPIO register flags */
+#define FLAGS GPIOR0
+#define FLAG_GS_UPDATE 0
+#define FLAG_XLAT_NEEDS_PULSE 1
+#define FLAG_FPS_UPDATE 2
+#define FLAG_EFFECT_MODE_CHANGED 3
+#define FLAG_UART_BIT_9 4
+
+/* EEPROM range for random number seed */
+#define RANDOM_EEPROM_BEGIN 0
+#define RANDOM_EEPROM_END 256
+
+/* EEPROM range for settings */
+#define SETTINGS_EEPROM_BEGIN 256
+#define SETTINGS_EEPROM_END 512
+
+#endif /* CONFIG_H_ */
