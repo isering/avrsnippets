@@ -1,7 +1,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                           */
 /*  avrsnippets - Some useful code snippets for the Atmega Microcontroller   */
-/*  Copyright (C) 2014  Julian Iseringhausen                                 */
+/*  Copyright (C) 2015  Julian Iseringhausen                                 */
 /*                                                                           */
 /*  This program is free software: you can redistribute it and/or modify     */
 /*  it under the terms of the GNU General Public License as published by     */
