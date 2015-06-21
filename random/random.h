@@ -20,7 +20,7 @@
 
 /**
  * @file   random.h
- * @author Julian Iseringhausen
+ * @author Julian Iseringhausen <julian.iseringhausen@gmail.com>
  * @date   Wed Oct 24 23:10:35 2012
  * 
  * @brief  Lightweight random number generators.

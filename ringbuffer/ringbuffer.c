@@ -20,7 +20,7 @@
 
 /**
  * @file   ringbuffer.c
- * @author Julian Iseringhausen
+ * @author Julian Iseringhausen <julian.iseringhausen@gmail.com>
  * @date   21.10.2012 12:13:41
  * 
  * @brief  A ring buffer

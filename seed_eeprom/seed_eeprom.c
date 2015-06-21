@@ -20,7 +20,7 @@
 
 /**
  * @file   seed_eeprom.c
- * @author Julian Iseringhausen
+ * @author Julian Iseringhausen <julian.iseringhausen@gmail.com>
  * @date   Tue Aug 21 00:35:12 2012
  *
  * @brief  Sets a different seed each time called using solely the builtin EEPROM.
