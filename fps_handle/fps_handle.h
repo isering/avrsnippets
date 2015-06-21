@@ -1,6 +1,6 @@
  /*
   * pixel_frame
-  * Copyright (C) 2013  Julian Iseringhausen <julian.iseringhausen@gmail.com>
+  * Copyright (C) 2015  Julian Iseringhausen <julian.iseringhausen@gmail.com>
   *
   * This program is free software: you can redistribute it and/or modify
   * it under the terms of the GNU General Public License as published by
@@ -23,8 +23,7 @@
  *  Author: Julian Iseringhausen <julian.iseringhausen@gmail.com>
  *
  *  Description: Implements VSYNC.
- */ 
-
+ */
 
 #ifndef FPS_HANDLE_H_
 #define FPS_HANDLE_H_
